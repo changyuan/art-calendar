@@ -39,17 +39,17 @@ $this->params['breadcrumbs'][] = $this->title;
           <div class="col-xs-12 col-md-4"><?=$value['name'];?></div>
           <div class="col-xs-12 col-md-4">
             <?php if (empty($value['relation_userinfo'])): ?>
-                <img src="<?=$value['member']['avatar'];?>" /> <span><?=$value['member']['nickname'];?></span>
+                <img src="<?=$value['member']['avatar'];?>" width="40px" height="40px"/> <span><?=$value['member']['nickname'];?></span>
             <?php else: ?>
                 <img src="<?=$value['relation_userinfo']['relation_avatar'];?>" /> <span><?=$value['relation_userinfo']['relation_nickname'];?></span>
             <?php endif ?>
               
           </div>
           <div class="col-xs-12 col-md-4">
-            <?= Html::a('-', 'javascript:void(0);',['class'=>"btn btn-default btn-lg",'onclick'=>"minute($key,$value[id])"]) ?>
-            <?= Html::input('number', 'view_count', $value['view_count'],['class' => 'btn','id'=>"view_count_$key",'onchange'=>"change($key,$value[id])"]);?>
-            <?= Html::a('+', 'javascript:void(0);',['class'=>"btn btn-default btn-lg",'onclick'=>"add($key,$value[id])"]) ?>
-            <?= Html::a('删除', 'javascript:void(0);',['class'=>"btn btn-warning btn-lg",'onclick'=>"del($value[id])"]) ?>
+            <?= Html::a('-', 'javascript:void(0);',['class'=>"btn btn-default",'onclick'=>"minute($key,$value[id])"]) ?>
+            <?= Html::input('number', 'view_count', $value['view_count'],['class' => 'btn btn-number','id'=>"view_count_$key",'onchange'=>"change($key,$value[id])"]);?>
+            <?= Html::a('+', 'javascript:void(0);',['class'=>"btn btn-default",'onclick'=>"add($key,$value[id])"]) ?>
+            <?= Html::a('删除', 'javascript:void(0);',['class'=>"btn btn-warning",'onclick'=>"del($value[id])"]) ?>
           </div>
         </div>
     <?php endforeach ?>
@@ -100,4 +100,4 @@ $this->params['breadcrumbs'][] = $this->title;
         } 
     }
 <?php $this->endBlock() ?>
-<?php $this->registerJs($this->blocks["js-block"], \yii\web\View::POS_END); ?>
+<?php $this->registerJs($this->blocks["js-block"], \yii\web\View::POS_HEAD); ?>

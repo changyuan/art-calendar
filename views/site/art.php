@@ -38,7 +38,7 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="row">
           <div class="col-xs-12 col-md-4"><?=$value['name'];?></div>
           <div class="col-xs-12 col-md-4">
-                <img src="<?=$value['member']['avatar'];?>" /> <span><?=$value['member']['nickname'];?></span>
+                <img src="<?=$value['member']['avatar'];?>" width="40px" height="40px"/> <span><?=$value['member']['nickname'];?></span>
           </div>
           <div class="col-xs-12 col-md-4">
             <?= Html::a('删除', 'javascript:void(0);',['class'=>"btn btn-warning",'onclick'=>"del($value[id])"]) ?>
@@ -60,4 +60,4 @@ $this->params['breadcrumbs'][] = $this->title;
         },'json');
     }
 <?php $this->endBlock() ?>
-<?php $this->registerJs($this->blocks["js-block"], \yii\web\View::POS_END); ?>
+<?php $this->registerJs($this->blocks["js-block"], \yii\web\View::POS_HEAD); ?>
